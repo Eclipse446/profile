@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +7,17 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)localhost:4200/].some(h => h.test(window.location.host));
 }

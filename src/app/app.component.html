@@ -1,10 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <button mat-button>Click me!</button>
-
-</div>
-
+<!--Start SideNav-->
+  <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">Online Presence</h1>
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+          <a mat-list-item>GitHub</a>
+          <a mat-list-item>Linkedin</a>
+          <a mat-list-item>youtube</a>
+          <a mat-list-item>Facebook</a>
+        </mat-nav-list>
+      </mat-sidenav>
+        <mat-tab-group>
+          <mat-tab label="About"> 
+            <mat-grid-list cols="2">
+                <mat-grid-tile>
+                    <img src="../assets/img/myDp.jpeg" style="max-width: 400px;"/>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <p>-I am a professional web developer who has fallen in love with technology<br/><br/>
+                    -I keep creating apps and projects in most of my free time<br/><br/>
+                    -Love to explore new frameworks and tech stack<br/><br/>
+                    -My recent favourite has been hybrid mobile apps<br/><br/>
+                    -Keenly interested in developing solutions for real world problems<br/><br/>
+                    -You will find most of my ideas working and embeded into code on my GitHub repository.<br/><br/>
+                    -I also have a few youtube videos where you would find a solution to all the road blocks i have come accross as a developer in my career.<br/><br/>
+                    -And a few videos as "Getting started guides" for those who wish to dive into programming.<br/><br/>
+                    -Most of my apps and projects that i build are open source and freely available on GitHub.</p>
+                  </mat-grid-tile>
+            </mat-grid-list>                  
+          </mat-tab> 
+          <mat-tab label="Projects"> Content 2 </mat-tab>
+          <mat-tab label="Tutorials"> Content 3 </mat-tab>
+          <mat-tab label="Contact"> Content 3 </mat-tab>
+          <mat-tab label="Hire Me"> Content 3 </mat-tab>
+        </mat-tab-group>
+    </mat-sidenav-container>
+  </div>
+  <div *ngIf="!shouldRun"></div>     
+  <!--End SideNav-->
 <router-outlet></router-outlet>
