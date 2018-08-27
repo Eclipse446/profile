@@ -12,16 +12,16 @@
           <a mat-list-item>Linkedin</a>
           <a mat-list-item>youtube</a>
           <a mat-list-item>Facebook</a>
+          <a mat-list-item>Twitter</a>
         </mat-nav-list>
       </mat-sidenav>
+
+      <!-- START PAGE TABS-->
         <mat-tab-group>
           <mat-tab label="About"> 
-            <mat-grid-list cols="2">
-                <mat-grid-tile>
-                    <img src="../assets/img/myDp.jpeg" style="max-width: 400px;"/>
-                  </mat-grid-tile>
-                  <mat-grid-tile>
-                    <p>-I am a professional web developer who has fallen in love with technology<br/><br/>
+                    <img src="../assets/img/myDp.jpeg" style="max-width: 200px; float: left;"/>
+                  
+                    <p id="aboutContent">-I am a professional web developer who has fallen in love with technology<br/><br/>
                     -I keep creating apps and projects in most of my free time<br/><br/>
                     -Love to explore new frameworks and tech stack<br/><br/>
                     -My recent favourite has been hybrid mobile apps<br/><br/>
@@ -29,15 +29,14 @@
                     -You will find most of my ideas working and embeded into code on my GitHub repository.<br/><br/>
                     -I also have a few youtube videos where you would find a solution to all the road blocks i have come accross as a developer in my career.<br/><br/>
                     -And a few videos as "Getting started guides" for those who wish to dive into programming.<br/><br/>
-                    -Most of my apps and projects that i build are open source and freely available on GitHub.</p>
-                  </mat-grid-tile>
-            </mat-grid-list>                  
+                    -Most of my apps and projects that i build are open source and freely available on GitHub.</p>  
           </mat-tab> 
           <mat-tab label="Projects"> Content 2 </mat-tab>
           <mat-tab label="Tutorials"> Content 3 </mat-tab>
-          <mat-tab label="Contact"> Content 3 </mat-tab>
-          <mat-tab label="Hire Me"> Content 3 </mat-tab>
+          <mat-tab label="Contact / Hire Me"> Content 3 </mat-tab>
         </mat-tab-group>
+      <!-- END PAGE TABS-->
+      
     </mat-sidenav-container>
   </div>
   <div *ngIf="!shouldRun"></div>     

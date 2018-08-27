@@ -16,8 +16,10 @@ export class AppComponent {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+  // tslint:disable-next-line:member-ordering
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)localhost:4200/].some(h => h.test(window.location.host));
 }
