@@ -37,3 +37,12 @@
   img {
     padding: 2%;
   }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container > * {
+    width: 100%;
+  }

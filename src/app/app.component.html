@@ -8,35 +8,117 @@
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list>
-          <a mat-list-item>GitHub</a>
-          <a mat-list-item>Linkedin</a>
+          <a mat-list-item href="https://github.com/shivtu" target="_blank">GitHub</a>
+          <a mat-list-item href="https://www.linkedin.com/in/shiben-dutta-28441618/" target="_blank">LinkedIn</a>
           <a mat-list-item>youtube</a>
-          <a mat-list-item>Facebook</a>
-          <a mat-list-item>Twitter</a>
+          <a mat-list-item href="https://www.facebook.com/shiben.dutta" target="_blank">Facebook</a>
+          <a mat-list-item href="https://twitter.com/shiben_dutta" target="_blank">Twitter</a>
         </mat-nav-list>
       </mat-sidenav>
 
       <!-- START PAGE TABS-->
         <mat-tab-group>
           <mat-tab label="About"> 
-                    <img src="../assets/img/myDp.jpeg" style="max-width: 200px; float: left;"/>
-                  
-                    <p id="aboutContent">-I am a professional web developer who has fallen in love with technology<br/><br/>
-                    -I keep creating apps and projects in most of my free time<br/><br/>
-                    -Love to explore new frameworks and tech stack<br/><br/>
-                    -My recent favourite has been hybrid mobile apps<br/><br/>
-                    -Keenly interested in developing solutions for real world problems<br/><br/>
-                    -You will find most of my ideas working and embeded into code on my GitHub repository.<br/><br/>
-                    -I also have a few youtube videos where you would find a solution to all the road blocks i have come accross as a developer in my career.<br/><br/>
-                    -And a few videos as "Getting started guides" for those who wish to dive into programming.<br/><br/>
-                    -Most of my apps and projects that i build are open source and freely available on GitHub.</p>  
-          </mat-tab> 
-          <mat-tab label="Projects"> Content 2 </mat-tab>
+              <img src="../assets/img/myDp.jpeg" style="max-width: 200px; float: left;"/>
+            
+              <p id="aboutContent">-I am a professional web developer who has fallen in love with technology<br/><br/>
+              -I keep creating apps and projects in most of my free time<br/><br/>
+              -Love to explore new frameworks and tech stack<br/><br/>
+              -My recent favourite has been hybrid mobile apps<br/><br/>
+              -Keenly interested in developing solutions for real world problems<br/><br/>
+              -You will find most of my ideas working and embeded into code on my GitHub repository.<br/><br/>
+              -I also have a few youtube videos where you would find a solution to all the road blocks i have come accross as a developer in my career.<br/><br/>
+              -And a few videos as "Getting started guides" for those who wish to dive into programming.<br/><br/>
+              -Most of my apps and projects that i build are open source and freely available on GitHub.</p>  
+          </mat-tab>
+          <mat-tab label="Projects">
+            <ol>
+              <li><a href="https://github.com/shivtu/supergym" target="_blank">SuperGym REST API</a>
+                <ul>
+                  <li>Simple REST API for gym membership management</li>
+                  <li>Admins will be able to add members and there membership numbers</li>
+                  <li>Segregated access for admin, trainers and memebers</li>
+                  <li>Trainers will be able to add users as enquiry</li>
+                  <li>Only admins will have the access to add membership numbers and define membership periods</li>
+                  <li>Users will be able to upload profile pictures and track fitness program progress</li>
+                  <li>Frameworks and modules used used : <a href="https://expressjs.com/" target="_blank">Expressjs</a>, <a href="https://www.npmjs.com/package/bcrypt" target="_blank">node.bcrypt.js</a>, <a href="https://mongoosejs.com/docs/guide.html" target="_blank">Mongoosejs</a>, <a href="https://github.com/expressjs/multer" target="_blank">multer</a></li>
+                  <li>License : <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a></li>
+                </ul>
+              </li>
+              <br/><br/>
+              <li><a href="https://github.com/shivtu/superGym-UI-mobile" target="_blank">SuperGym Mobile App UI</a>
+                <ul>
+                  <li>Hybrid mobile app using <a href="https://github.com/shivtu/supergym" target="_blank" target="_blank">SuperGym REST API</a> as backend</li>
+                  <li>Seggregated login for admin trainers and members</li>
+                  <li>Framework used : <a href="https://ionicframework.com/" target="_blank">Ionic 3</a></li>
+                  <li>License : <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a></li>
+                </ul>
+              </li>
+              <br/><br/>
+              <li><a href="https://github.com/shivtu/profile">Profile Page</a>
+                <ul>
+                  <li>Everything you see on this site is this project</li>
+                  <li>License : <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a></li>
+                </ul>
+              </li>
+              <li></li>
+            </ol>
+          </mat-tab>
           <mat-tab label="Tutorials"> Content 3 </mat-tab>
-          <mat-tab label="Contact / Hire Me"> Content 3 </mat-tab>
+          <mat-tab label="Contact / Hire Me">
+            <div id="resume">
+              
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Conatct ME
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      Send a message
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  
+                  <div class="form-container">
+                    <mat-form-field>
+                      <input matInput placeholder="Name" [formControl]="name" required>
+                      <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Phone Number" type="number">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Email" [formControl]="email" required>
+                      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>     
+                    <mat-form-field>
+                      <textarea matInput placeholder="Textarea" [formControl]="message" required></textarea>
+                      <mat-error *ngIf="message.invalid">{{getTextErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                    <button mat-raised-button color="primary">Send Message</button>         
+                  </div>
+                  
+                </mat-expansion-panel>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Resume
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      Download
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <button mat-stroked-button color="primary" style="float: right;">Download this resume</button>
+                </mat-expansion-panel>
+              </mat-accordion>
+
+            </div>
+          </mat-tab>
         </mat-tab-group>
       <!-- END PAGE TABS-->
-      
+
     </mat-sidenav-container>
   </div>
   <div *ngIf="!shouldRun"></div>     
