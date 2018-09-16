@@ -107,7 +107,7 @@
                       <textarea matInput placeholder="Message" [formControl]="message" required></textarea>
                       <mat-error *ngIf="message.invalid">{{getTextErrorMessage()}}</mat-error>
                     </mat-form-field>
-                    <button mat-raised-button color="primary" (click)="insertVisitorData()">Send Message</button>         
+                    <button mat-stroked-button color="primary" (click)="insertVisitorData()">Send Message</button>         
                   </div>
                   
                 </mat-expansion-panel>
@@ -232,7 +232,7 @@
           </mat-tab>
         </mat-tab-group>
       <!-- END PAGE TABS-->
-
+<footer>This site was built using Angular 6 and a pinch of custom css</footer>
     </mat-sidenav-container>
   </div>
   <div *ngIf="!shouldRun"></div>     
