@@ -61,7 +61,6 @@
                   <li>License : <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a></li>
                 </ul>
               </li>
-              <li></li>
             </ol>
           </mat-tab>
 
@@ -72,7 +71,7 @@
               <img src="../assets//img/ionic-logo-portrait.png" alt="Ionic framework" style="width:50%">
               <h2>Ionic Getting Started</h2>
               <p>An end to end guide to get you started with Ionic 3 with a login template and a side menu</p>
-              <p><button>View The Guide</button></p>
+              <p><button (click)="ionicGettingStartedGuide()">View The Guide</button></p>
             </div>
             
             
@@ -94,7 +93,7 @@
                   
                   <div class="form-container">
                     <mat-form-field>
-                      <input matInput placeholder="Name" [formControl]="name" required>
+                      <input matInput placeholder="Name" [formControl]="name" [(ngModel)]="_name" required>
                       <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
                     </mat-form-field>
                     <mat-form-field>
@@ -105,10 +104,10 @@
                       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                     </mat-form-field>     
                     <mat-form-field>
-                      <textarea matInput placeholder="Textarea" [formControl]="message" required></textarea>
+                      <textarea matInput placeholder="Message" [formControl]="message" required></textarea>
                       <mat-error *ngIf="message.invalid">{{getTextErrorMessage()}}</mat-error>
                     </mat-form-field>
-                    <button mat-raised-button color="primary">Send Message</button>         
+                    <button mat-raised-button color="primary" (click)="insertVisitorData()">Send Message</button>         
                   </div>
                   
                 </mat-expansion-panel>
@@ -122,7 +121,7 @@
                       Download
                     </mat-panel-description>
                   </mat-expansion-panel-header>
-                  <button mat-stroked-button color="primary" style="float: right;">Download PDF</button>
+                  <button mat-stroked-button color="primary" style="float: right;" (click)="downloadResume()">Download Resume</button>
                   <br/><br/><br/>
                   <textarea matInput placeholder="Textarea" readonly style="height: 500px;">
                       Shiben Dutta	

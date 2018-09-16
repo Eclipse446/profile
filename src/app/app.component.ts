@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,12 @@ export class AppComponent {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  _name: string;
+  _email: string;
+  _phone_number: number;
+  _message: string;
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private http: HttpClient) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -38,5 +43,22 @@ export class AppComponent {
   }
   getTextErrorMessage() {
     return this.name.hasError('required') ? 'You must enter a value' : '';
+  }
+
+  // Post request to insert visitor data
+  insertVisitorData() {
+    
+  }
+
+  // Download the resume
+  downloadResume() {
+    const win = window.open('http://shibendutta.com/profile/shibenDuttaM.doc', '_blank');
+    win.focus();
+  }
+
+  // Open getting started with ionic page in new window
+  ionicGettingStartedGuide() {
+    const win = window.open('http://shibendutta.com/profile/guides/ionic-starter/ionic-starter.html', '_blank');
+    win.focus();
   }
 }
