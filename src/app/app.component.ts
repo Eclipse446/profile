@@ -67,13 +67,13 @@ export class AppComponent {
 
   // Download the resume
   downloadResume() {
-    const win = window.open('http://shibendutta.com/profile/shibenDuttaM.doc', '_blank');
+    const win = window.open('https://shibendutta.com/profile/shibenDuttaM.doc', '_blank');
     win.focus();
   }
 
   // Open getting started with ionic page in new window
   ionicGettingStartedGuide() {
-    const win = window.open('http://shibendutta.com/profile/guides/ionic-starter/ionic-starter.html', '_blank');
+    const win = window.open('https://shibendutta.com/profile/guides/ionic-starter/ionic-starter.html', '_blank');
     win.focus();
   }
 }
