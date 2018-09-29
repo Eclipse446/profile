@@ -31,7 +31,9 @@ export class AppComponent {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
   // tslint:disable-next-line:member-ordering
-  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)localhost:4200/].some(h => h.test(window.location.host));
+  // shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)localhost:4200/].some(h => h.test(window.location.host));
+  // tslint:disable-next-line:member-ordering
+  shouldRun = true;
 
   // Get error message on form
   getErrorMessage() {
@@ -47,7 +49,20 @@ export class AppComponent {
 
   // Post request to insert visitor data
   insertVisitorData() {
-    
+    const contactUrl = 'http://shibendutta.com/profile/contacts_api/rest.php';
+    const  body  = {
+      name:  this._name,
+      email:  this._email,
+      phone_number:  this._phone_number,
+      message:  this._message
+    };
+
+  const _headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+    const req = this.http.post(contactUrl, body, {headers: _headers}).subscribe((res: any) => {
+      alert('Thank you for the message! I will get back to you as soon as possible');
+    }, Error => {
+      alert('For some reason message sending failed, email shibendutta@gmail.com as a direct email.');
+    });
   }
 
   // Download the resume
